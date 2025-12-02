@@ -221,24 +221,6 @@ font-family:  sans-serif;
     object-fit: cover;
 }
 
-@media (max-width: 900px) {
-    .about-section {
-        flex-direction: column-reverse;
-        align-items: center;
-        padding-top: 150px;
-    }
-
-    .about {
-        width: 100%;
-    }
-
-    .profile-container {
-        position: relative; /* Remove sticky on mobile */
-        top: 0;
-        margin-bottom: 40px;
-    }
-}
-
 /* navi island */
 /* 1. Position the Floating Island */
 .floating-nav {
@@ -361,13 +343,7 @@ font-family:  sans-serif;
     height: 20px;
 }
 
-/* 5. Mobile Adjustment (Optional) */
-/* On phones, move the bar to the bottom or hide it if it takes too much space */
-@media (max-width: 768px) {
-    .left-panel {
-        display: none; /* Hide sidebar on mobile to save space */
-    }
-}
+
 
 /* contact page */
 .contact-section {
@@ -379,7 +355,7 @@ font-family:  sans-serif;
     align-items: center;
 }
 
-.contact-section h1 {
+.contact-text h1 {
     font-weight: 800; 
     font-size: 10rem; 
     letter-spacing: -3px; 
@@ -389,7 +365,7 @@ font-family:  sans-serif;
     margin-top:0;
 }
 
-.contact-section p {
+.contact-text p {
     max-width: 500px; /* Limits width so it doesn't stretch */
     text-align: justify;
     font-family: 'Verdana',sans-serif; /* Simple font for small text */
@@ -446,16 +422,8 @@ footer p {
     color: #6B7308;
 }
 
-
+/* WORK */
 .work-section {
-    /* padding-top:0;
-    flex: 1;
-    max-width: 800px;
-    display: flex;
-    flex-direction: row;
-    text-align: left; */
-
-    /* position:relative; */
     width: 100%;
     height:100vh;
     overflow:hidden;
@@ -463,42 +431,125 @@ footer p {
 
 .work-text {
     position: absolute;
-    
-    bottom: 40px;  /* Distance from the floor */
-    left: 120px;   /* Distance from left (120px clears your fixed footer/sidebar) */
-    
-    z-index: 2;    /* Ensures text sits on top of any background images */
+    bottom: 5vh; 
+    left: 5vw;  
+    z-index: 2;
     text-align: left;
 }
 
-/* Tighten up the text spacing */
 .work-text h1 {
     font-weight: 800; 
-    font-size: 10rem; 
+    font-size: 10vw;
     letter-spacing: -3px; 
     line-height: 0.9;
-    margin: 0;     /* Remove default margin to stack them tight */
+    margin: 0;    
     color: #6B7308;
 }
-
-/* .work-text h2 {
-    font-weight: 600; 
-    font-size: 4rem; 
-    letter-spacing: -1px; 
-    line-height: 1;
-    margin: 0;
-    margin-left: 10px;
-    color: #6B7308;
-} */
 
 .road-img {
     position: absolute;
     right: 0;
     top: 0;
-    width: 500px; /* Or use 'width: 40vw' for responsive sizing */
+    width: 40vw; 
     height: 100%; 
-    object-fit: cover; /* Ensures the image covers the area without stretching */
+    object-fit: cover;
     z-index: 1;
-
 }
 
+
+@media (max-width: 768px) {
+    .left-panel {
+        display: none;
+    }
+
+     .about-section {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: 150px;
+    }
+
+    .about {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-container {
+        position: relative;
+        top: 0;
+        margin-bottom: 40px;
+    }
+
+    footer {
+        position: relative; 
+        width: 100%;
+        height: auto;
+        top: auto; 
+        left: auto; 
+        bottom: auto;        
+        flex-direction: row; 
+        justify-content: center;
+        align-items: center;        
+        padding: 20px 0;        
+        pointer-events: auto;
+    }
+
+    footer p {
+        writing-mode: horizontal-tb; 
+        transform: none; 
+        font-size: 0.8rem;
+    }
+
+    /* 3. Fix Content Padding */
+    /* On desktop, your sections have padding-left to avoid the sidebar. 
+       We must remove that on mobile so content centers properly. */
+    .contact-section, .work-section, .about-section {
+        padding-left: 5%; /* Reset to match right padding */
+        padding-right: 5%;
+    }
+
+   .contact-section {
+        /* 1. Reset padding (Remove the 300px desktop shift) */
+        padding-left: 5%; 
+        padding-right: 5%;
+        
+        /* 2. Stack vertically */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* Center the text */
+    }
+
+   .contact-section h1 {
+    font-weight: 800; 
+    font-size: 6rem; 
+    letter-spacing: -3px; 
+    line-height: 0.9;
+    margin-bottom: 20px;
+    text-align: left;
+    gap:0;
+}
+
+   .phone-img {
+        position: relative; 
+        left: -120px;
+        top: -150px;
+        transform: none;
+        width: 80px; 
+        margin-top:0;
+        margin-bottom: 20px;
+    }
+
+    .work-text {
+        bottom: 20vh; 
+        left: 8vw;  
+    }
+
+    .road-img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100vw; 
+        height: 100%;
+        object-fit: cover;
+    }
+}

@@ -153,16 +153,352 @@ font-family:  sans-serif;
     50% { border-right-color: transparent; }
 }
 
-/* Target links specifically inside the options list */
-.options ul li a {
-    text-decoration: none;       /* Removes the underline */
-    color: inherit;              /* Forces link to use the parent text color (#6B7308) */
-    outline: none;               /* Removes the blue focus border */
-    -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile tap */
-    display: block;              /* OPTIONAL: Makes the whole clickable area bigger */
+/* about */
+
+.about-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    padding-top: 180px; 
+    padding-left: 5%; /* Add some side padding for safety */
+    padding-right: 5%;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-/* Optional: Ensure visited links don't turn purple */
-.options ul li a:visited {
-    color: inherit;
+.about {
+    padding-top:0;
+    flex: 1;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
 }
+
+.about h1 {
+    font-weight: 800; 
+    font-size: 5rem; 
+    letter-spacing: -3px; 
+    line-height: 0.9;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top:0;
+}
+
+.about h2 {
+    font-weight: 600; 
+    font-size: 2rem; 
+    letter-spacing: -1px; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top:0;
+}
+
+.about p {
+    max-width: 1000px; /* Limits width so it doesn't stretch */
+    text-align: justify;
+    font-family: 'Verdana',sans-serif; /* Simple font for small text */
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px; /* Lifts it up slightly from the very bottom edge */
+}
+
+.profile-container {
+    /* Prevent the image from shrinking */
+    flex-shrink: 0; 
+    
+    /* Sticky Magic: Makes the image stay visible while you scroll the long text */
+    position: sticky;
+    top: 150px; /* Adjust based on your nav height */
+}
+
+.profile {
+    width: 400px; /* Adjust size as needed */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 20px; /* Optional: Rounded corners */
+    object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .about-section {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: 150px;
+    }
+
+    .about {
+        width: 100%;
+    }
+
+    .profile-container {
+        position: relative; /* Remove sticky on mobile */
+        top: 0;
+        margin-bottom: 40px;
+    }
+}
+
+/* navi island */
+/* 1. Position the Floating Island */
+.floating-nav {
+    position: fixed; /* Stays in place when scrolling */
+    top: 40px;       /* Distance from top */
+    left: 50%;       /* Center horizontally */
+    transform: translateX(-50%); /* Perfect centering alignment */
+    z-index: 1000;   /* Sit on top of everything else */
+}
+
+/* pill nav style */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Spacing between words */
+    
+    /* Shape & Size */
+    padding: 12px 30px;
+    border-radius: 50px; /* Makes it a pill shape */
+    
+    /* THE GLASS EFFECT (Sean Halpin style) */
+    background: rgba(255, 255, 255, 0.2); /* White with low opacity */
+    backdrop-filter: blur(10px);          /* Blurs what's behind it */
+    -webkit-backdrop-filter: blur(10px);  /* For Safari support */
+    
+    /* Optional: Subtle border to make it pop */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+/* 3. Style the Links */
+.nav-item {
+    text-decoration: none;
+    font-family: 'Verdana', sans-serif; /* Use your clean font */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333; /* Dark grey text */
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hover Effect */
+.nav-item:hover {
+    color: #000;
+    transform: translateY(-1px); /* Slight lift */
+}
+
+/* 4. The "Active" State (The White Bubble) */
+/* When you add class="active" to a link, it looks like a white button */
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: black;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: -6px -16px; /* Compensate for padding so layout doesn't jump */
+}
+
+.work-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    align-items: center;
+    padding-top: 180px; 
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    width: 100%;    
+}
+
+/* 1. The Left Panel Container */
+.left-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full screen height */
+    width: 80px;   /* Width of the panel */
+    
+    /* Panel Visuals */
+    background-color: transparent; /* Keep it clean/transparent */
+    /* Optional: Add a subtle border if you want a distinct "strip" look */
+    /* border-right: 1px solid rgba(0,0,0,0.05); */
+    
+    display: flex;
+    justify-content: center; /* Center button horizontally */
+    padding-top: 40px;       /* Align with your floating nav */
+    z-index: 1000;           /* Stay above content */
+}
+
+/* 2. The Home Button */
+.home-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 44px;
+    height: 44px;
+    border-radius: 50%; /* Circle shape */
+    
+    color: #333; /* Icon color (Dark Grey) */
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    backdrop-filter: blur(5px);
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 3. Hover Effect */
+.home-btn:hover {
+    background-color: #6B7308; /* Your theme green */
+    color: white; /* Icon turns white */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(107, 115, 8, 0.3);
+}
+
+/* 4. Icon Size */
+.home-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* 5. Mobile Adjustment (Optional) */
+/* On phones, move the bar to the bottom or hide it if it takes too much space */
+@media (max-width: 768px) {
+    .left-panel {
+        display: none; /* Hide sidebar on mobile to save space */
+    }
+}
+
+/* contact page */
+.contact-section {
+    padding-left: 300px; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-section h1 {
+    font-weight: 800; 
+    font-size: 10rem; 
+    letter-spacing: -3px; 
+    line-height: 0.9;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-top:0;
+}
+
+.contact-section p {
+    max-width: 500px; /* Limits width so it doesn't stretch */
+    text-align: justify;
+    font-family: 'Verdana',sans-serif; /* Simple font for small text */
+    font-size: 0.9rem;
+    line-height: 0.2;
+    margin-bottom: 20px; /* Lifts it up slightly from the very bottom edge */
+}
+
+.phone-img {
+    position:absolute;
+    left:350px;
+    top:0;
+    width: 250px; 
+    height: auto; 
+    transform: translateY(-80px);
+    transform: translateX(-50px);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0; /* Spans the full height of the left side */
+    width: 60px;
+    
+    /* 1. FLEXBOX SETUP */
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    
+    /* 2. THE FIX: Push content to the bottom */
+    justify-content: flex-end; 
+    align-items: center; /* Center horizontally in the 60px strip */
+    
+    padding-bottom: 40px; /* Add breathing room from the bottom edge */
+    z-index: 100;
+    pointer-events: none; /* Let clicks pass through the empty strip */
+}
+
+footer p {
+    /* 3. VERTICAL TEXT MAGIC */
+    /* This tells the browser the text flows vertically */
+    writing-mode: vertical-rl; 
+    
+    /* 4. FLIP IT (Read Bottom to Top) */
+    /* vertical-rl usually reads Top->Bottom. We rotate 180 to flip it. */
+    transform: rotate(180deg); 
+    
+    white-space: nowrap; 
+    pointer-events: auto; /* Re-enable clicking on the text */
+    
+    font-family: 'Verdana', sans-serif; 
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #6B7308;
+}
+
+
+.work-section {
+    /* padding-top:0;
+    flex: 1;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    text-align: left; */
+
+    /* position:relative; */
+    width: 100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+.work-text {
+    position: absolute;
+    
+    bottom: 40px;  /* Distance from the floor */
+    left: 120px;   /* Distance from left (120px clears your fixed footer/sidebar) */
+    
+    z-index: 2;    /* Ensures text sits on top of any background images */
+    text-align: left;
+}
+
+/* Tighten up the text spacing */
+.work-text h1 {
+    font-weight: 800; 
+    font-size: 10rem; 
+    letter-spacing: -3px; 
+    line-height: 0.9;
+    margin: 0;     /* Remove default margin to stack them tight */
+    color: #6B7308;
+}
+
+/* .work-text h2 {
+    font-weight: 600; 
+    font-size: 4rem; 
+    letter-spacing: -1px; 
+    line-height: 1;
+    margin: 0;
+    margin-left: 10px;
+    color: #6B7308;
+} */
+
+.road-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 500px; /* Or use 'width: 40vw' for responsive sizing */
+    height: 100%; 
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    z-index: 1;
+
+}
+

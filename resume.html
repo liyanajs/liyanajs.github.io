@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Resume | Liyana JS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@400;600&family=Didot&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="resume-body">
+    
+    <aside class="left-panel">
+        <a href="menu.html" class="home-btn" aria-label="Back to Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+            <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+            </svg>
+        </a>
+    </aside>
+
     <header>
         <nav class="floating-nav">
             <div class="nav-links">
                 <a href="about.html" class="nav-item">About</a>
-                <a href="work.html" class="nav-item">Work</a>
+                <a href="work/index.html" class="nav-item">Work</a>
                 <a href="resume.html" class="nav-item active">Resume</a>
                 <a href="contact.html" class="nav-item">Contact</a>
             </div>
@@ -19,10 +34,90 @@
     </header>   
     
     <main>
-        <section class="about">
-            <h1>Resume</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus eveniet, earum aperiam libero atque repellat id rerum dolore et quia obcaecati ullam perspiciatis tenetur blanditiis. Nam esse aspernatur natus cupiditate illo nihil alias et quisquam accusamus placeat unde beatae, deleniti eligendi dicta, nisi sed iste adipisci omnis molestiae laborum perspiciatis minima ratione non? Facilis quidem, quasi amet possimus libero culpa maxime delectus error temporibus dolorum sint laudantium sequi omnis rerum aperiam perspiciatis aliquid alias praesentium ex! Neque provident minima corrupti delectus nobis explicabo beatae nulla nesciunt vero nihil itaque voluptas nemo dignissimos aliquam velit fugit, repellat sapiente necessitatibus asperiores. Facilis neque nesciunt a mollitia ea cum eum dolore est ab similique, reiciendis, at eligendi! Ipsum, consequuntur. Optio saepe repudiandae dignissimos fugiat quasi eligendi, porro voluptate, recusandae at, facilis molestias debitis aut! Hic soluta nobis iusto non sequi esse dolorum animi ex eaque delectus ipsum amet impedit quia consectetur fugiat ullam, suscipit recusandae quod. Quas eveniet natus doloribus id necessitatibus at ea consequuntur ex qui! Amet soluta inventore repellendus nesciunt dolores quod consectetur, itaque fugiat, a, facere quos? Voluptatum rerum, expedita repudiandae dolore error in consequuntur esse sunt, sequi dignissimos incidunt doloribus, exercitationem laudantium eaque quam laborum quos fugit? Saepe, cum.</p>
-        </section>
+        <article class="resume-paper">
+            
+            <header class="resume-header">
+                <h1>NUR LIYANA JAMALUL SHAMSUDIN</h1>
+                <p class="role-title">Server Engineer / Full Stack Developer</p>
+                <div class="contact-info">
+                    <span>Malaysia</span> • 
+                    <a href="mailto:email@example.com">nurliyanajs@gmail.com</a> • 
+                    <a href="#">LinkedIn</a>
+                </div>
+            </header>
+
+            <hr class="divider">
+
+            <section class="resume-section">
+                <h3>PROFILE</h3>
+                <p>
+                    Server Engineer with a background in GIS and full-stack development. 
+                    Known for rapid adaptation—mastering proprietary languages like Magik in record time—and bridging the gap between heavy backend logic and modern web interfaces. 
+                    Currently building scalable solutions for the gaming industry using .NET and Next.js.
+                </p>
+            </section>
+
+            <section class="resume-section">
+                <h3>EXPERIENCE</h3>
+                
+                <div class="job-role">
+                    <div class="job-header">
+                        <h4>Server Engineer</h4>
+                        <span class="date">2024 - Present</span>
+                    </div>
+                    <span class="company">OKAKICHI • Gaming Industry</span>
+                    <ul>
+                        <li>Architected "Backend for Frontend" (BFF) layers using <strong>Next.js</strong> to bridge core <strong>.NET</strong> game engines with web dashboards.</li>
+                        <li>Developed real-time data visualization tools for "Changokushi Heroes" economy tracking.</li>
+                        <li>Implemented secure API endpoints and optimized database queries for high-traffic game events.</li>
+                    </ul>
+                </div>
+
+                <div class="job-role">
+                    <div class="job-header">
+                        <h4>Backend Developer (GIS)</h4>
+                        <span class="date">2022 - 2024</span>
+                    </div>
+                    <span class="company">Utility Project (Client: TNB)</span>
+                    <ul>
+                        <li>Completed the 6-month intensive <strong>Magik (OOP)</strong> training curriculum in just 4 months (Fast Track).</li>
+                        <li>Developed custom backend plugins for <strong>GE Smallworld</strong> to manage national-scale electrical assets.</li>
+                        <li>Led maintenance and debugging for critical utility infrastructure, ensuring high availability for TNB's grid management systems.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <h3>KEY PROJECTS</h3>
+                <div class="project-item">
+                    <h4>Changokushi Heroes Dashboard</h4>
+                    <p>A Full Stack analytics platform utilizing Next.js API routes as middleware to aggregate and visualize real-time game server data.</p>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <h3>SKILLS</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <strong>Languages</strong>
+                        <p>JavaScript (ES6+), TypeScript, C# (.NET), Python, Magik</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Web Technologies</strong>
+                        <p>Next.js, React, HTML5, CSS3, REST APIs</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Tools & Database</strong>
+                        <p>Git, SQL, PostgreSQL, Postman, GE Smallworld</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="download-section">
+                <a href="#" class="download-btn">Download PDF</a>
+            </div>
+
+        </article>
     </main>
     
     <footer>

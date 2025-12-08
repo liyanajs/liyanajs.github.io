@@ -21,7 +21,7 @@ body.inverted .typewriter {
 }
 
 .color-section {
-    /* height: 100vh; */
+    height: 100vh;
     top:0;
 }
 
@@ -142,21 +142,31 @@ body.work-page .scroll-indicator {
 }
 
 
-.work-card {
+/* .work-card {
     background: #FAEDED;
-    width: 360px;
-    height: 150px;
+    width: 30vw;
+    height: 30vh;
     padding: 30px 32px;
-    border-radius: 14px;
 
-    /* SOFT shadow — subtle & elegant */
     box-shadow: 
-        0 10px 25px rgba(0,0,0,0.06),
-        0 4px 10px rgba(0,0,0,0.04);
+        0 10px 25px rgba(107, 115, 8, 0.06),
+        0 4px 10px rgba(107, 115, 8, 0.04);
 
     border: 1px solid rgba(0,0,0,0.05);
 
     transition: transform 0.25s ease, box-shadow 0.3s ease;
+} */
+
+
+
+.work-card {
+    background: #FAEDED;
+    width: 30vw;
+    height: 30vh;
+    padding: 30px;
+    border-radius: 4px;
+    /* border: 5px double #6B7308; */
+    border: 5px double #d6b3b5;
 }
 
 .work-card:hover {
@@ -167,19 +177,61 @@ body.work-page .scroll-indicator {
 }
 
 .work-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    margin-top: 0;
-    margin-bottom: 12px;
+    font-family: 'Didot', sans-serif;
+    font-size: 3rem;
+    margin: 30px;
     color: #6B7308;
-    letter-spacing: 1px;
+    letter-spacing: -0.5px;
+    text-align: center;
 }
 
 .work-card p {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
+    font-family: 'Verdana', sans-serif;
+    line-height: 1.5;
     font-size: 0.95rem;
     color: #444;
+    text-align: left;
+    width: 75%;;
+    margin: 0 auto;
+}
+
+.read-more-btn {
+    /* 1. POSITIONING: Align with the paragraph above */
+    align-self: flex-start; /* Stop it from centering itself */
+    margin-left: 12.5%;     /* Match the empty space of the paragraph (100% - 75% = 25% / 2) */
+    margin-top: 15px;       
+    
+    /* 2. SIZING: Only wrap the text, don't stretch */
+    width: fit-content; 
+    display: inline-block;
+    
+    /* 3. STYLING */
+    text-decoration: none;
+    font-family: 'Verdana', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #6B7308;
+    cursor: pointer;
+    
+    /* 4. SETUP ANIMATION */
+    position: relative;
+}
+
+/* The Line (Hidden) */
+.read-more-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #6B7308;
+    transition: width 0.3s ease-in-out;
+}
+
+/* The Trigger (Hover) */
+.read-more-btn:hover::after {
+    width: 100%; /* Now 100% refers only to the word "read more" */
 }
 
 .scroll-indicator {
@@ -672,10 +724,8 @@ footer {
     position: fixed;
     left: 0;
     top: 0;
-    bottom: 0; /* Spans the full height of the left side */
+    bottom: 0; 
     width: 60px;
-    
-    /* 1. FLEXBOX SETUP */
     display: flex;
     flex-direction: column; /* Stack vertically */
     
@@ -689,18 +739,11 @@ footer {
 }
 
 footer p {
-    /* 3. VERTICAL TEXT MAGIC */
-    /* This tells the browser the text flows vertically */
     writing-mode: vertical-rl; 
-    
-    /* 4. FLIP IT (Read Bottom to Top) */
-    /* vertical-rl usually reads Top->Bottom. We rotate 180 to flip it. */
     transform: rotate(180deg); 
-    
     white-space: nowrap; 
-    pointer-events: auto; /* Re-enable clicking on the text */
-    
-    font-family: 'Verdana', sans-serif; 
+    pointer-events: auto; 
+    font-family: 'Didot', sans-serif; 
     font-size: 0.75rem;
     letter-spacing: 1px;
     color: #6B7308;
@@ -795,17 +838,14 @@ footer p {
         padding-right: 5%;
     }
 
-    /* CONTACT PAGE */
+    /* -------------------------CONTACT PAGE-------------------------- */
     .contact-section {
-        /* 1. Reset padding (Remove the 300px desktop shift) */
         padding-left: 5%; 
         padding-right: 5%;
-        
-        /* 2. Stack vertically */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center; /* Center the text */
+        text-align: center; 
     }
 
     .contact-section h1 {
@@ -828,52 +868,31 @@ footer p {
         margin-bottom: 20px;
     }
 
-    /* WORK PAGE */
-    /* body.work-page .work-text {
-        bottom: 20vh; 
-        left: 8vw;  
-    }
-
-    body.work-page.road-img {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100vw; 
-        height: 100%;
-        object-fit: cover;
-    } */
-
-    /* --- WORK PAGE FIXES (Mobile) --- */
-    
-    /* 1. Force the container to be full screen height */
+    /* -------------------------WORK PAGE-------------------------- */
     body.work-page .work-section {
-        height: 100vh;       /* Fill the phone screen */
+        height: 100vh;   
         width: 100%;
         position: relative;
-        overflow: hidden;    /* Cut off overflowing image parts */
-        padding: 0;          /* Remove padding so image touches edges */
+        overflow: hidden;   
+        padding: 0;      
     }
 
-    /* 2. Fix the Road Image (No more cropping) */
     body.work-page .road-img {
         position: absolute;
         top: 0;
-        right: -20%;         /* Pull it slightly right so the curve sits nicely */
-        
-        height: 100%;        /* CRITICAL: Force it to touch bottom of screen */
-        width: auto;         /* Let width calculate automatically */
-        min-width: 120%;     /* Ensure it's wide enough to cover the right side */
-        
+        right: -20%;  
+        height: 100%;        
+        width: auto;         
+        min-width: 120%;   
         object-fit: cover;
         z-index: 1;
     }
 
-    /* 3. Fix the Text Position */
     body.work-page .work-text {
         position: absolute;
-        bottom: 15%;         /* Adjust height to match your screenshot */
-        left: 30px;          /* Keep it on the left */
-        z-index: 2;          /* Ensure it sits ON TOP of the image */
+        bottom: 15%;         
+        left: 30px;          
+        z-index: 2;          
         text-align: left;
     }
     
@@ -884,34 +903,56 @@ footer p {
         line-height: 1;
     }
 
-    /* 4. Hide Scroll Indicator on Mobile (Optional) */
-    /* Usually animations annoy mobile users, uncomment if you want to hide it */
-    /* .scroll-indicator { display: none; } */
+    /* .scroll-indicator { display: none; } */ 
 
     body.work-page .scroll-indicator {
-        /* 1. Reset Desktop Centering */
         top: auto;
         transform: none;
-        
-        /* 2. Horizontal Alignment (Match Work Text) */
         left: 40px; 
-        align-items: flex-start; /* Aligns the mouse icon to the left */
-        
-        /* 3. Vertical Position (Above the Text) */
-        /* Your text is at bottom: 25%. 
-           We add extra % to clear the text height + 10px gap */
+        align-items: flex-start;
         bottom: 25%; 
-        
-        /* 4. Make sure it stays visible long enough to see */
-        animation: scrollFadeOut 0.6s ease-out 4s forwards;
+        animation: scrollFadeOut 0.6s ease-out 5s forwards;
     }
     
-    /* Optional: Scale it down slightly for mobile */
     .scroll-mouse {
         width: 30px;
         height: 48px;
         border-width: 1.5px;
     }
+
+    .work-cards {
+        flex-direction: column;
+        margin-left: 0;  
+        padding: 40px 0;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .work-card h3 {
+        font-size: 2rem;
+        margin: 0 0 15px 0;;
+    }
+
+    .work-card p {
+        font-size: 0.8rem;
+        margin: 0 20px;
+    }
+
+    .work-card {
+        width: 60%;
+        height: 80%;
+    }
+
+    .read-more-btn {
+        margin-left: 20px;
+    }
+
+    .color2::before {
+        left: 0;
+        right:0;
+    }
+
+    /* -------------------------MENU PAGE-------------------------- */
 
    .options {
         flex-direction: column;
@@ -941,18 +982,5 @@ footer p {
         transform: none;
         margin-bottom: 8px;
     }
-
-     .work-cards {
-        flex-direction: column;
-        margin-left: 0;   /* no sidebar offset on mobile */
-        padding: 40px 0;
-        gap: 24px;
-        align-items: center;
-    }
-
-    .work-card {
-        width: 90%;
-    }
-     
 }
 

@@ -12,13 +12,10 @@
 
 body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   background: #f7ebec;
   /* background:  #F7EBEC; */
   color: #6b7308;
   font-family: "Didot";
-  margin: 0;
 }
 
 .center-layout {
